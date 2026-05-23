@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tim's Homelab 🖥️</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { display:flex; flex-direction:column; min-height:100vh; }
+
+    .landing-wrap {
+      flex:1; display:flex; flex-direction:column;
+      padding: 32px; gap:28px; max-width:900px; margin:0 auto; width:100%;
+    }
+
+    .landing-header {
+      display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    }
+
+    .title-left h1 {
+      font-size: 28px; font-weight:700; color:var(--green);
+      letter-spacing:0.04em; margin-bottom:4px;
+    }
+
+    .title-left .subtitle {
+      font-size:13px; color:var(--text-dim);
+    }
+
+    .desc-block {
+      max-width:300px; font-size:13px; color:var(--text-dim);
+      text-align:right; line-height:1.9; padding-top:4px;
+    }
+    .desc-block span { color:var(--green); }
+
+    .main-terminal .terminal-body { min-height:140px; }
+    #main-output { margin-bottom:12px; font-size:13px; min-height:60px; line-height:1.9; }
+
+    @media (max-width:600px) {
+      .landing-header { flex-direction:column; gap:12px; }
+      .desc-block { text-align:left; max-width:100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="landing-wrap">
+
+  <!-- Header -->
+  <div class="landing-header">
+    <div class="title-left">
+      <h1>Tim's Homelab 🖥️</h1>
+      <div class="subtitle">homelab &amp; side projects — John Timothy Pascual</div>
+    </div>
+    <div class="desc-block">
+      An online archive of my personal homelab, projects, goals and
+      application of learnings from studying the field of
+      <span>information technology</span>.
+    </div>
+  </div>
+
+  <!-- Nav Terminal (top) -->
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <span class="terminal-title">tim@homelab:~ — navigate</span>
+    </div>
+    <div class="terminal-body">
+      <div id="main-output"></div>
+      <div class="terminal-line">
+        <span class="prompt-user">tim</span>
+        <span class="prompt-at">@</span>
+        <span class="prompt-host">homelab</span>
+        <span style="color:var(--text-dim)">:</span>
+        <span class="prompt-path">~</span>
+        <span style="color:var(--text)">$&nbsp;</span>
+        <input id="main-input" class="terminal-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus>
+      </div>
+    </div>
+    <div class="cheatsheet">
+      <div class="cheatsheet-label">// type a command or click to navigate</div>
+      <span class="cmd-hint"><span class="cmd" data-cmd="whoistim">whoistim</span> — who is Tim</span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="prjs">prjs</span> — projects</span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="curprjs">curprjs</span> — ongoing</span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="goals">goals</span> — goals</span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="homelab">homelab</span> — homelab</span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="help">help</span> — help</span>
+    </div>
+  </div>
+
+  <!-- Quick links grid -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+    <div class="folder-item" onclick="location.href='whoistim.html'" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;">
+      <span style="color:var(--cyan);font-size:13px">$ whoistim</span>
+      <span style="font-size:12px;color:var(--text-dim)">Who is Tim</span>
+    </div>
+    <div class="folder-item" onclick="location.href='projects.html'" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;">
+      <span style="color:var(--cyan);font-size:13px">$ prjs</span>
+      <span style="font-size:12px;color:var(--text-dim)">Accomplished Projects</span>
+    </div>
+    <div class="folder-item" onclick="location.href='curprojects.html'" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;">
+      <span style="color:var(--cyan);font-size:13px">$ curprjs</span>
+      <span style="font-size:12px;color:var(--text-dim)">Ongoing Projects</span>
+    </div>
+    <div class="folder-item" onclick="location.href='goals.html'" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;">
+      <span style="color:var(--cyan);font-size:13px">$ goals</span>
+      <span style="font-size:12px;color:var(--text-dim)">Personal &amp; Project Goals</span>
+    </div>
+    <div class="folder-item" onclick="location.href='homelab.html'" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;">
+      <span style="color:var(--cyan);font-size:13px">$ homelab</span>
+      <span style="font-size:12px;color:var(--text-dim)">Environment &amp; Topology</span>
+    </div>
+    <div class="folder-item" style="padding:16px;flex-direction:column;align-items:flex-start;gap:6px;opacity:0.4;cursor:default;">
+      <span style="color:var(--text-dim);font-size:13px">$ more soon</span>
+      <span style="font-size:12px;color:var(--text-dim)">In progress...</span>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/terminal.js"></script>
+<script>
+  autoType('main-output', [
+    '&gt; welcome to <span style="color:var(--green)">Tim\'s Homelab</span>',
+    '&gt; type a command below or click a card to navigate',
+    '&gt; try: <span style="color:var(--green)">whoistim</span> &nbsp;|&nbsp; <span style="color:var(--green)">prjs</span> &nbsp;|&nbsp; <span style="color:var(--green)">homelab</span>',
+  ], 700);
+</script>
+</body>
+</html>
