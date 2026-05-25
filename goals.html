@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goals — Tim's Homelab</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .col-label { font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); font-weight:700; }
+    .goal-item { margin-bottom:14px; padding:16px; background:var(--bg2); border:1px solid var(--border); border-radius:6px; transition:border-color 0.15s ease; }
+    .goal-item:hover { border-color:var(--accent); }
+    .goal-title { font-size:14px; color:var(--text-bright); margin-bottom:8px; font-weight:600; }
+    .goal-title span { color:var(--accent); margin-right:10px; }
+    .goal-action { font-size:13px; color:var(--text-dim); line-height:1.9; }
+    .goal-action span { color:var(--cyan); }
+  </style>
+</head>
+<body class="page-wrapper">
+
+<header class="site-header">
+  <div class="site-title">
+    <div class="title-text"><h1>Tim's Homelab</h1><span>homelab &amp; side projects</span></div>
+  </div>
+  <div class="header-right">
+    <div class="site-description">$ goals</div>
+    <div class="theme-toggle" id="theme-toggle">
+      <span class="theme-toggle-label" id="theme-label">dark</span>
+      <div class="toggle-switch"><div class="toggle-knob"></div></div>
+    </div>
+  </div>
+</header>
+
+<div style="padding:16px 32px 0;">
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="terminal-dot red"></div><div class="terminal-dot yellow"></div><div class="terminal-dot green"></div>
+      <span class="terminal-title">tim@homelab:~/goals &nbsp;—&nbsp; navigate</span>
+    </div>
+    <div class="terminal-body" style="padding:10px 16px;">
+      <div id="nav-output" style="font-size:12px;"></div>
+      <div class="terminal-line">
+        <span class="prompt-user">tim</span><span class="prompt-at">@</span><span class="prompt-host">homelab</span>
+        <span style="color:var(--text-dim)">:</span><span class="prompt-path">~/goals</span>
+        <span style="color:var(--text)">$&nbsp;</span>
+        <input id="nav-input" class="terminal-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command...">
+      </div>
+    </div>
+    <div class="cheatsheet">
+      <div class="cheatsheet-label">// navigate</div>
+      <span class="cmd-hint"><span class="cmd" data-cmd="home">home</span> <span class="cmd-label">— landing</span></span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="whoistim">whoistim</span> <span class="cmd-label">— profile</span></span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="projects">projects</span> <span class="cmd-label">— projects</span></span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="current">current</span> <span class="cmd-label">— ongoing</span></span>
+      <span class="cmd-hint"><span class="cmd" data-cmd="homelab">homelab</span> <span class="cmd-label">— homelab</span></span>
+    </div>
+  </div>
+</div>
+
+<main class="page-content fade-in">
+  <div class="page-title"><span class="path">~/</span><span class="current">goals</span></div>
+  <div class="two-col split-5-5">
+
+    <div>
+      <div class="col-label">personal goals</div>
+      <div class="goal-item">
+        <div class="goal-title"><span>01</span>Improve Networking Skills</div>
+        <div class="goal-action">Taking the <span>Cisco NetAcad Network Support and Security</span> course to build a solid foundation in networking and security.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>02</span>Learn Active Directory</div>
+        <div class="goal-action">Set up <span>Windows Server Core 2022</span> and <span>Windows 8.1</span> VMs in VMware to practice AD administration hands-on.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>03</span>Learn Cybersecurity — Pentesting</div>
+        <div class="goal-action">Installing security tools on Debian server. Using <span>DVWA</span> on proot as the vulnerable target. Completed all 10 DVWA attack modules on Android ARM64.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>04</span>Graduate from College</div>
+        <div class="goal-action">Attending remaining classes, completing internship requirements, and passing final submissions for a <span>BSIT degree</span>.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>05</span>Build a Tech Community</div>
+        <div class="goal-action">Joining <span>Discord</span> and <span>Facebook</span> tech communities — asking questions, sharing knowledge, building connections.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>06</span>Get Hired</div>
+        <div class="goal-action">Practicing real skills, building a portfolio, gaining hands-on experience, and meeting people who can help open doors in the industry.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="col-label">project goals</div>
+      <div class="goal-item">
+        <div class="goal-title"><span>01</span>Create a Diverse Homelab</div>
+        <div class="goal-action">Reviving a dead laptop to run a dedicated <span>Debian file/media server</span> — the current VM Debian server is used for web hosting and cybersecurity.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>02</span>Create This Portfolio</div>
+        <div class="goal-action">Building <span>Tim's Homelab</span> — a central archive for all projects, goals, and homelab documentation. Currently in progress.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>03</span>Build and Host a MERN Stack Website</div>
+        <div class="goal-action">Learning <span>MongoDB, Express, React, and Node.js</span> to build and self-host a full-stack web application on the homelab.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-title"><span>04</span>Create a Mature Pipeline of Workflows</div>
+        <div class="goal-action">Building out the homelab and learning <span>Docker</span> and <span>GitHub workflows</span> to create a professional CI/CD-style pipeline for managing machines and deployments.</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="assets/js/terminal.js"></script>
+</body>
+</html>
