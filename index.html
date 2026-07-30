@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John Timothy Pascual - Linux | Web Systems | Servers</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .project-details { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease; }
+    .project-card.expanded .project-details { max-height: 3000px; opacity: 1; margin-top: 4px; }
+    .project-toggle {
+      background: none; cursor: pointer; font-family: inherit;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--accent); border: 1px solid var(--border); border-radius: 4px;
+      padding: 6px 12px; margin: 10px 0 4px 0;
+    }
+    .project-toggle:hover { border-color: var(--accent); }
+  </style>
 </head>
 <body>
 
@@ -142,6 +153,8 @@
         <div class="project-name">LEMP Stack — Ubuntu Server</div>
         <div class="project-date">2025 &nbsp;·&nbsp; lemp-stack-ubuntu-server</div>
         <div class="project-purpose">Full LEMP stack (Linux, Nginx, MySQL, PHP 8.3-FPM) deployed on a bare Ubuntu server for hosting a PHP web application with a relational MySQL database.</div>
+        <button class="project-toggle" onclick="toggleProject(this)">View More ▾</button>
+        <div class="project-details">
         <div class="proj-section">Stack</div>
         <table class="proj-table">
           <tr><th>Component</th><th>Technology</th></tr>
@@ -167,6 +180,7 @@
           <li>Always run mysql_secure_installation before exposing a server</li>
           <li>Web root permissions must be set to www-data to avoid 403 errors</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -177,6 +191,8 @@
         <div class="project-name">LEMP Stack — Android proot</div>
         <div class="project-date">2026 &nbsp;·&nbsp; proot-lemp-android</div>
         <div class="project-purpose">Full LEMP stack running inside a proot Debian environment on Android ARM64 via Termux. No root, no laptop, no cloud — Nginx 1.26.3, PHP 8.4-FPM, MariaDB 11.8.6.</div>
+        <button class="project-toggle" onclick="toggleProject(this)">View More ▾</button>
+        <div class="project-details">
         <div class="proj-section">Stack</div>
         <table class="proj-table">
           <tr><th>Component</th><th>Technology</th></tr>
@@ -203,6 +219,7 @@
           <li>proot limitations are all workable with small configuration adjustments</li>
           <li>Symlinks bridge proot filesystem to Termux for seamless mobile editing</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -213,6 +230,8 @@
         <div class="project-name">DVWA Pentest Writeup</div>
         <div class="project-date">2026 &nbsp;·&nbsp; dvwa-pentest-writeup</div>
         <div class="project-purpose">Full web application penetration test on DVWA covering 10 attack vectors, conducted entirely on Android ARM64 proot Debian.</div>
+        <button class="project-toggle" onclick="toggleProject(this)">View More ▾</button>
+        <div class="project-details">
         <div class="proj-section">Attack Chain</div>
         <pre class="proj-pre">01 SQL Injection       → full database dump
 02 Hash Cracking       → all passwords recovered (hashcat + rockyou)
@@ -238,6 +257,7 @@
           <li>Stored XSS is the most dangerous — one payload affects all visitors indefinitely</li>
           <li>Command injection + file upload both lead to full RCE through different paths</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -248,6 +268,8 @@
         <div class="project-name">Termux Gemini AI Agent</div>
         <div class="project-date">2026 &nbsp;·&nbsp; termux-gemini-ai-agent</div>
         <div class="project-purpose">CLI-based agentic AI system powered by Gemini API running in Termux. Executes terminal commands, automates Git workflows, and controls remote machines via SSH from Android.</div>
+        <button class="project-toggle" onclick="toggleProject(this)">View More ▾</button>
+        <div class="project-details">
         <div class="proj-section">Stack</div>
         <table class="proj-table">
           <tr><th>Component</th><th>Technology</th></tr>
@@ -268,6 +290,7 @@
           <li>Safety filtering and confirmation prompts are essential before autonomous execution</li>
           <li>tmux + Termux:Boot solves the Android background process limitation</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -278,6 +301,8 @@
         <div class="project-name">Fleet Fuel Management System</div>
         <div class="project-date">2025 &nbsp;·&nbsp; fleet-fuel-management</div>
         <div class="project-purpose">Web-based fleet and fuel management system with an HTML/CSS/JS frontend and a Python Flask backend. Tracks vehicles, fuel consumption, and field operations.</div>
+        <button class="project-toggle" onclick="toggleProject(this)">View More ▾</button>
+        <div class="project-details">
         <div class="proj-section">Stack</div>
         <table class="proj-table">
           <tr><th>Component</th><th>Technology</th></tr>
@@ -290,6 +315,7 @@
           <li>Flask is a practical lightweight backend for small management systems</li>
           <li>Python + JS is a fast stack for internal tools and dashboards</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -506,5 +532,12 @@
 </section>
 
 <script src="assets/js/theme.js"></script>
+<script>
+  function toggleProject(btn) {
+    const card = btn.closest('.project-card');
+    const expanded = card.classList.toggle('expanded');
+    btn.textContent = expanded ? 'View Less ▴' : 'View More ▾';
+  }
+</script>
 </body>
 </html>
