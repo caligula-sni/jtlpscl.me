@@ -7,7 +7,7 @@ function applyTheme(theme) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('theme') || 'dark';
+  const saved = localStorage.getItem('theme') || 'light';
   applyTheme(saved);
 
   const toggle = document.getElementById('theme-toggle');
