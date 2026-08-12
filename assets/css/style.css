@@ -17,18 +17,31 @@
 }
 
 [data-theme="light"] {
-  --bg:          #f0f2f5;
+  --bg:          #ffffff;
   --bg2:         #ffffff;
-  --bg3:         #e8eaed;
-  --border:      #d0d4da;
-  --accent:      #0077cc;
-  --accent-dim:  #005fa3;
-  --cyan:        #0066bb;
-  --yellow:      #b38600;
-  --red:         #cc2200;
-  --text:        #2a2a2a;
-  --text-dim:    #777777;
+  --bg3:         #f2f2f2;
+  --border:      #d9d9d9;
+  --accent:      #000000;
+  --accent-dim:  #333333;
+  --cyan:        #000000;
+  --yellow:      #000000;
+  --red:         #b3261e;
+  --text:        #1a1a1a;
+  --text-dim:    #6b6b6b;
   --text-bright: #000000;
+}
+
+[data-theme="light"] .hero-name,
+[data-theme="light"] .hero-name span,
+[data-theme="light"] .section-label,
+[data-theme="light"] .tl-item,
+[data-theme="light"] .project-name,
+[data-theme="light"] .problem-title,
+[data-theme="light"] .goal-title,
+[data-theme="light"] .env-card-title,
+[data-theme="light"] .proj-section {
+  font-weight:700;
+  color:#000000;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -74,7 +87,7 @@ section:last-child { border-bottom:none; }
 /* ASCII terminal box */
 .ascii-terminal {
   background:var(--bg2); border:1px solid var(--border);
-  border-radius:6px; overflow:hidden; max-width:860px;
+  border-radius:6px; overflow:hidden; width:100%;
   margin-top:28px;
 }
 .ascii-bar {
@@ -87,6 +100,19 @@ section:last-child { border-bottom:none; }
 .dot.g { background:#28c840; }
 .ascii-bar-title { font-size:11px; color:var(--text-dim); margin-left:6px; }
 .ascii-body { padding:20px 22px; }
+
+.hero-flex { display:flex; align-items:center; gap:32px; }
+.hero-photo {
+  width:180px; height:180px; border-radius:8px;
+  border:1px solid var(--border); object-fit:cover;
+  flex-shrink:0; background:var(--bg3);
+}
+.hero-text { flex:1; }
+
+@media(max-width:640px) {
+  .hero-flex { flex-direction:column; align-items:flex-start; gap:20px; }
+  .hero-photo { width:140px; height:140px; }
+}
 .ascii-art {
   font-family:var(--font); font-size:11px; color:var(--accent);
   line-height:1.45; white-space:pre; overflow-x:auto;
